@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Função java script</title>
+    <link rel="stylesheet" href="./funcoes.css">
 </head>
 <body>
     <div class="container" >
+        <div class="mensagem"></div>
         <form id="formularioP">
             <input type="number" placeholder= "digite aqui" name="n1">
             <input type="number"placeholder= "digite aqui"  name="n2">
@@ -18,7 +20,30 @@
             <button type="submit">Enviar</button>
         </form>
         <div id="resultado"></div>
-    </div>
+
+        <!-- segundo formulario start  -->
+
+         <!-- <form id="formularioS">    S= segundo -->
+
+
+        <form id="formularioS">
+             <h2>Faça seu cadastro</h2>
+            <input type="text" placeholder="digite seu nome"  class="obrigatorio" name="nome">
+            <input type="text" placeholder= " seu telefone"  class="" name="telefone" >
+            <input type="text" placeholder= " seu cep" class="numerico" name="cep" >
+            <input type="text" placeholder= " seu email"  class="email" name="email">
+            <input type="text" placeholder= " sua cidade"  class="obrigatorio" name="cidade">
+            <input type="text" placeholder= " seu UF" class="uf" name="uf">  
+            <button type="submit">Enviar</button>
+        </form>
+         
+         
+    </div> 
+
+
+
+
+   
 
 
     <script type="text/javascript" src="./funcao.js"></script>
