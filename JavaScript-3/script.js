@@ -1,85 +1,33 @@
-function calcularMedia( notas ) {
 
-    let soma = 0;
-    for( c = 0; c < notas.length; c++) {
-        soma += notas[c];
+class MetodoAprovacao{
+    constructor(){
+        this.notas = [];
     }
+    Dados(){
 
-    media = soma / notas.length;
-
-    return media;
-
-}
-
-let media; // escopo global
-
-function aprovacao( notas ) {
-
-    let media = calcularMedia( notas ); // escopo da função
-
-    let condicao = media >= 8 ? "aprovado" : "reprovado";
-
-    return 'Média: ' + media + ' - Resultado: ' + condicao;
-
-}
-
-
-// Função Recursivas
-
-function contagemRegressiva(numero){
-
-    console.log(numero);  
-    
-    let proximoNumero = numero - 1;
-
-    if(proximoNumero > 0)
-        contagemRegressiva(proximoNumero);
-
-}
-
-// contagemRegressiva(50);
-
-/* 
- * Formulário envio de dados para cálculo da média 
- */
-const formulario1 = document.getElementById('formulario-01');
-
-if(formulario1)
-    formulario1.addEventListener('submit', function( evento ){
-
-        evento.preventDefault();
-        evento.stopPropagation();
-
-        if( this.getAttribute('class').match(/erro/) ) {
-            return false;
+        let valores = document.getElementsByClassName('numero');
+        let notasAluno = [];
+        let soma = 0;
+        let media = '';
+        for(let v = 0; v < valores.length; v++){
+            notasAluno.push(valores[v].value)
         }
+        notasAluno.forEach(v => { soma += +(v) })
+        media = soma / 4;
+        return media
         
-        let dados = new FormData(this);
-
-        let notas = [];
-
-        for(let key of dados.keys()) {
-
-            let numero = dados.get(key).match(/\d*/) ? Number(dados.get(key)) : 0; // é um número
-
-            if(!isNaN(numero)) {
-                notas.push(numero);
-            }
-
-        }
-
-        console.log(notas);
-
-        texto = aprovacao(notas)
-
-        document.getElementById('resultado').innerHTML = texto;
-
-    });
-
+    }
+    Media(media){
+            let texto = this.Dados(media) >= 7 ?   'aprovado' : 'reprovado';
+            console.log(texto);
+           document.getElementById('resultado').innerText = texto;
+    }
+}
+const metodo = new MetodoAprovacao();
 
 function validaCampo(elemento){
 
-    elemento.addEventListener('focusout', function(event) {
+    elemento.addEventListener('focusout', (event) => {
 
         event.preventDefault();
 
@@ -100,12 +48,11 @@ function validaCampo(elemento){
 
 function validaCampoNumerico(elemento){
 
-    elemento.addEventListener('focusout', function(event) {
+    elemento.addEventListener('focusout', (event) => {
 
         event.preventDefault();
 
         let numero = this.value.match(/^[\d]5-[\d]3/) ? this.value.replace(/-/, "") : this.value; 
-
         if(numero != "" && numero.match(/[0-9]*/) && numero >= 0 && numero <= 10){
             document.querySelector('.mensagem').innerHTML = "";
             this.classList.remove('erro');
@@ -124,7 +71,7 @@ function validaCampoNumerico(elemento){
 
 function validaEml(elemento){
 
-    elemento.addEventListener('focusout', function(event) {
+    elemento.addEventListener('focusout', (event) => {
 
         event.preventDefault();
 
@@ -146,7 +93,7 @@ function validaEml(elemento){
 
 // criar minha função para filtrar o campo do UF do formulário
     function validaUF(elemento){
-        elemento.addEventListener('focusout', function(event){
+        elemento.addEventListener('focusout', (event) => {
              event.preventDefault();
 
              const ufValido = /^[A-Z]{2}$/;
@@ -165,7 +112,7 @@ function validaEml(elemento){
     }                               //está funcinando mais ainda tenho que filtrar para somente 2 digitos de letra
 
 
-
+validaCampo()
 let camposObrigatorios = document.querySelectorAll('input.obrigatorio');
 let camposNumericos = document.querySelectorAll('input.numero');
 let camposEmail = document.querySelectorAll('input.email');

@@ -4,37 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Função java script</title>
+    <title> Função javaScript</title>
     <link rel="stylesheet" href="./funcoes.css">
 </head>
 <body>
     <div class="container" >
-        <div class="mensagem"></div>
-        <form id="formularioP">
+        
+        <form id="formularioP" class="formP">
+          <div class="inputs">
             <input type="number" placeholder= "digite aqui" name="n1">
             <input type="number"placeholder= "digite aqui"  name="n2">
             <input type="number"placeholder= "digite aqui"  name="n3">
             <input type="number"placeholder= "digite aqui"  name="n4">
             <input type="number"placeholder= "digite aqui"  name="n5">
 
-            <button type="submit">Enviar</button>
+          </div>
+           <div class="btn-div">
+            <button type="submit">Calcular Média</button>
+            <div id="resultado"></div>
+           </div>
         </form>
-        <div id="resultado"></div>
 
         <!-- segundo formulario start  -->
 
          <!-- <form id="formularioS">    S= segundo -->
 
 
-        <form id="formularioS">
+        <form id="formularioS" class="formS">
+           
              <h2>Faça seu cadastro</h2>
+           <div class="inputs">
             <input type="text" placeholder="digite seu nome"  class="obrigatorio" name="nome">
             <input type="text" placeholder= " seu telefone"  class="" name="telefone" >
             <input type="text" placeholder= " seu cep" class="numerico" name="cep" >
             <input type="text" placeholder= " seu email"  class="email" name="email">
             <input type="text" placeholder= " sua cidade"  class="obrigatorio" name="cidade">
-            <input type="text" placeholder= " seu UF" class="uf" name="uf">  
-            <button type="submit">Enviar</button>
+            <input type="text" placeholder= " seu UF" class="uf" name="uf"> 
+           </div> 
+           <div class="btn-div"></div>
+           <button type="submit">Enviar</button>
+           <div class="mensagem"></div>
         </form>
          
          

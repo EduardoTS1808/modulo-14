@@ -3,7 +3,7 @@
 
 
 
-function calMed (notas){
+ calMed = (notas) => {
     let soma = 0;
     for(c = 0; c < notas.length; c++){
         soma += notas[c];
@@ -12,15 +12,14 @@ function calMed (notas){
     media = soma / notas.length;
     return media;
 }
-
-function aprovacao ( notas){
+aprovacao = ( notas) => {
     let media = calMed(notas);
     let condicao = media >= 7 ? "aprovado" : "reprovado";
     return 'Média: ' + media +'- resultado: ' + condicao;
 }
 
 
-document.addEventListener('submit', function(evento){
+document.addEventListener('submit', (evento) =>{
     evento.preventDefault(); //para empedir que o html funcione de forma padrão
     evento.stopPropagation();
     let formulario = document.getElementById('formularioP');
@@ -32,9 +31,9 @@ document.addEventListener('submit', function(evento){
         //  push adiciona itens no array
         notas.push( parseInt(dados.get(key)));
     }
-    console.log(notas);
+    // console.log(notas);
 
-    console.log(objeto);
+    // console.log(objeto);
     texto = aprovacao(notas);
     document.getElementById('resultado').innerHTML = texto;
 }); 
@@ -59,7 +58,7 @@ document.addEventListener('submit', function(evento){
 const formulario1 = document.getElementById('formulario-01');
 
 if(formulario1)
-    formulario1.addEventListener('submit', function( evento ){
+    formulario1.addEventListener('submit', ( evento ) =>{
 
         evento.preventDefault(); // faz uma interrupção no evento natural do html
         evento.stopPropagation(); // impedi a propagação do evento atual nas faces de captura e burbulhamento.
@@ -82,7 +81,7 @@ if(formulario1)
 
         }
 
-        console.log(notas); // serve para acompanhar no console as funções por "baixo dos panos"
+        // console.log(notas); // serve para acompanhar no console as funções por "baixo dos panos"
 
         texto = aprovacao(notas)
 
@@ -93,7 +92,7 @@ if(formulario1)
 
 function validaCampo(elemento){
 
-    elemento.addEventListener('focusout', function(event) { // quando perder o foco vai disparar uma sequência de eventos para verificar se está de acordo com o que foi pedido no (ex; placeholder).
+    elemento.addEventListener('focusout', (event) =>{ // quando perder o foco vai disparar uma sequência de eventos para verificar se está de acordo com o que foi pedido no (ex; placeholder).
 
         event.preventDefault(); // para evitar o submit sem antes passar por essa condição de validção ( validaCamp())
 
@@ -114,7 +113,7 @@ function validaCampo(elemento){
 
 function validaCampoNumerico(elemento){
 
-    elemento.addEventListener('focusout', function(event) {
+    elemento.addEventListener('focusout',(event) => {
 
         event.preventDefault();
 
@@ -138,7 +137,7 @@ function validaCampoNumerico(elemento){
 
 function validaEmail(elemento){ //valida se é um emal
 
-    elemento.addEventListener('focusout', function(event) {
+    elemento.addEventListener('focusout', (event) =>{
 
         event.preventDefault();
 
